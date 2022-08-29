@@ -1,6 +1,4 @@
 
 .nav-menu {
     background-image: url(./../background.png);
-    display: flex;
-    justify-content: space-between;
 }
