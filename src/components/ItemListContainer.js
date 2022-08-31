@@ -3,8 +3,8 @@ import Card from 'react-bootstrap/Card';
 
 function ItemListContainer({botonAdd}) {
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img alt="imagen producto" variant="top" src="./../suculenta.png"/>
+        <Card style={{ width: '18rem' }} className="tilesBackground">
+            <Card.Img alt="imagen producto" variant="top" src="./public/assets/suculenta.png"/>
             <Card.Body>
                 <Card.Title>Producto</Card.Title>
                 <Card.Text>
