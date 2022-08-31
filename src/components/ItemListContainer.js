@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function ItemListContainer() {
+function ItemListContainer({botonAdd}) {
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Img alt="imagen producto" variant="top" src="./../suculenta.png"/>
@@ -13,7 +13,7 @@ function ItemListContainer() {
                 <Card.Text>
                     Precio del producto
                 </Card.Text>
-                <Button variant="success">Agregar al carrito</Button>
+                <Button variant="success">{botonAdd}</Button>
             </Card.Body>
         </Card>
     );

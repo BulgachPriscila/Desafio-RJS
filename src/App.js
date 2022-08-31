@@ -9,7 +9,7 @@ function App() {
   return (
   <div>
     <NavBar sticky="top"/>
-    <ItemListContainer/>
+    <ItemListContainer botonAdd="Añadir al carrito"/>
   </div>
   );
 }
