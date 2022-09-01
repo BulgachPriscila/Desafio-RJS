@@ -9,7 +9,7 @@ function NavBar() {
         <Navbar className="tilesBackground mb-5" expand="lg">
             <Container>
                 <Navbar.Brand href="#home">
-                <img alt="Sprout logo" src="./../public/assets/sprout.png" width="35" height="35" className="d-inline-block align-top"/>
+                <img alt="Sprout logo" src="/assets/sprout.png" width="35" height="35" className="d-inline-block align-top"/>
                 </Navbar.Brand>
                 <Navbar.Brand href="#home">Proyecto React - PB</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
