@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Contador from './Contador';
 
 function ItemListContainer({botonAdd}) {
     return (
@@ -13,6 +14,10 @@ function ItemListContainer({botonAdd}) {
                 <Card.Text>
                     Precio del producto
                 </Card.Text>
+                <Card.Text>
+                    Max 5
+                </Card.Text>
+                <Contador/>
                 <Button variant="success">{botonAdd}</Button>
             </Card.Body>
         </Card>
