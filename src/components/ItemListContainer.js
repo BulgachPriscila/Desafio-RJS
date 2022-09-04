@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Contador from './Contador';
+import ItemCount from './ItemCount';
 
 function ItemListContainer({botonAdd}) {
     return (
@@ -17,7 +17,7 @@ function ItemListContainer({botonAdd}) {
                 <Card.Text>
                     Max 5
                 </Card.Text>
-                <Contador/>
+                <ItemCount/>
                 <Button variant="success">{botonAdd}</Button>
             </Card.Body>
         </Card>

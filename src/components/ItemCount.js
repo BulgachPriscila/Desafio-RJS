@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Button } from '@mui/material';
 import CardActions from '@mui/material/CardActions';
 
-const Contador = () => {
+const ItemCount = () => {
     const [counter, setCounter] = useState (0)
 
     const suma = () => {
@@ -31,4 +31,4 @@ const Contador = () => {
 
 
 
-export default Contador
+export default ItemCount
