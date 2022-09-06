@@ -1,27 +1,32 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import ItemCount from './ItemCount';
+import { useEffect } from 'react'
+import { useState } from 'react'
+import pedirDatos from '../Data/pedirDatos';
+import ItemList from './ItemList';
 
-function ItemListContainer({botonAdd}) {
+const ItemListContainer = () => {
+
+    const [productos, setProductos] = useState ([])
+    
+    console.log (productos)
+
+    useEffect (() => {
+        pedirDatos ()
+            .then ( (succ) => {
+                setProductos (succ)
+            })
+            .catch ((fail) => {
+                console.log (fail)
+            })
+            .finally (() => {
+                console.log ("Todo cargado!")
+            })
+    }, [])
+
     return (
-        <Card style={{ width: '18rem' }} className="tilesBackground text-center">
-            <Card.Img alt="imagen producto" variant="top" src="/assets/suculenta.png"/>
-            <Card.Body>
-                <Card.Title>Producto</Card.Title>
-                <Card.Text>
-                Descripción del producto
-                </Card.Text>
-                <Card.Text>
-                    Precio del producto
-                </Card.Text>
-                <Card.Text>
-                    Max 5
-                </Card.Text>
-                <ItemCount/>
-                <Button variant="success">{botonAdd}</Button>
-            </Card.Body>
-        </Card>
-    );
+        <div>
+            <ItemList productos={productos} />
+        </div>
+    )
 }
 
 export default ItemListContainer ;

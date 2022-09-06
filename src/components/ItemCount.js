@@ -6,7 +6,7 @@ const ItemCount = () => {
     const [counter, setCounter] = useState (0)
 
     const suma = () => {
-        if (counter <= 4 ){
+        if (counter <= 4){
             setCounter (counter + 1)
         }
         
