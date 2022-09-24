@@ -14,8 +14,6 @@ const App = () => {
       <NavBar sticky="top"/>
       <Routes>
         <Route path='/' element={<ItemListContainer/>}/>
-        <Route path='/suculentas' element={<Suculentas/>}/>
-        <Route path='/cactus' element={<Cactus/>}/>
         <Route path='/productos/:categoryId' element={<ItemListContainer/>}/>
         <Route path='/producto/:itemId' element={<ItemDetailContainer/>}/>
       </Routes>    
