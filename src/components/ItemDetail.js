@@ -1,12 +1,16 @@
-import { Button, Card } from "react-bootstrap"
+import { Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import Counter from "./Counter"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { CartContext } from "./CartContext"
 
 
 const ItemDetail = ({item}) => {
 
-    const [cantidad, setCantidad] = useState (0)
+    const { cart, addToCart, enCarrito} = useContext(CartContext)
+    console.log(cart)
+
+    const [cantidad, setCantidad] = useState (1)
 
     const agregar = () => {
         const prodAgregado ={
@@ -15,8 +19,7 @@ const ItemDetail = ({item}) => {
             precio: item.precio,
             cantidad
         }
-        
-        console.log (prodAgregado)
+        addToCart (prodAgregado) 
     }
 
 
@@ -29,15 +32,12 @@ const ItemDetail = ({item}) => {
                         <Card.Text>Stock : {item.stock}</Card.Text>
                         <Card.Text>Tipo : {item.tipo}</Card.Text>
                         <Card.Text>{item.detalles}</Card.Text>
-                        <Counter max={item.stock} counter={cantidad} setCounter={setCantidad} agregar={agregar}/>
-
-                        <div>
-                        <Link to='/'>
-                            <Button variant="primary" className="my-1">
-                                Volver al catalogo
-                            </Button>
-                        </Link>
-                        </div>
+                        
+                        {
+                            enCarrito(item.id) 
+                            ?   <Link to='/cart' className="btn btn-success my-1"> Terminar compra </Link>
+                            :   <Counter max={item.stock} counter={cantidad} setCounter={setCantidad} agregar={agregar}/> 
+                        }
                     </Card.Body>
             </Card>
         </div>
