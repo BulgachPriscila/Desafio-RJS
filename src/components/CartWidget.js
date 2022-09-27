@@ -1,9 +1,16 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
-function CartWidget (carrito) {
+function CartWidget () {
+    const {cartQ} = useContext(CartContext)
+    
     return(
         <div>
+            <Link to='/Cart' className="nav-link">
             <img alt="Shopping Cart" src="/assets/cart.svg" width="35" height="35"/>
-            <p>{carrito.cantidad}</p>
+            <span className="text-muted">{cartQ()}</span>
+            </Link>
         </div>
     );
 }

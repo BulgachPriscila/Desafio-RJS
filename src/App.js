@@ -4,25 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from './components/ItemListContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import { CartContext } from './components/CartContext';
-import { useState } from 'react';
 import Cart from './components/Cart';
+import { CartProvider } from './components/CartContext';
 
 
 const App = () => {
-  
-  const [cart, setCart] = useState([])
-
-  const addToCart = (item) => {
-    setCart([...cart, item])
-  }
-
-  const enCarrito = (id) => {
-    return cart.some((item) => item.id === id)
-  }
+ 
   
   return (
-    <CartContext.Provider value={ { cart, addToCart, enCarrito} }>
+    <CartProvider>
       <BrowserRouter>
 
         <NavBar sticky="top"/>
@@ -33,7 +23,7 @@ const App = () => {
           <Route path='/Cart' element={<Cart/>}/>
         </Routes>    
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 

@@ -1,5 +1,4 @@
 import Item from './Item'
-import { Container } from 'react-bootstrap'
 
 const ItemList = ( {productos} = [] ) => {
     return (
@@ -8,10 +7,9 @@ const ItemList = ( {productos} = [] ) => {
             <hr/>
             
             {productos.map ((item) => {
-                return      <Container key={item.id}>
-                                <Item producto={item}/>
-                            </Container>
-            
+                return      <div className="row text-center" key={item.id}>
+                                <Item  producto={item}/>
+                            </div>
             })} 
             
         </div>

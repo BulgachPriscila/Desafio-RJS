@@ -6,3 +6,6 @@
 .tilesButton {
     background-image: url(./../../public/assets/background.png);
 }
+.cardSize {
+    width: 18rem;
+}
