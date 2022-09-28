@@ -9,7 +9,7 @@ import { CartProvider } from './components/CartContext';
 
 
 const App = () => {
- 
+
   
   return (
     <CartProvider>

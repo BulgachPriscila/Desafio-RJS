@@ -35,7 +35,7 @@ const ItemDetail = ({item}) => {
                         
                         {
                             enCarrito(item.id) 
-                            ?   <Link to='/cart' className="btn btn-success my-1"> Terminar compra </Link>
+                            ?   <Link to='/cart' className="btn tilesButton my-1"> Terminar compra </Link>
                             :   <Counter max={item.stock} counter={cantidad} setCounter={setCantidad} agregar={agregar}/> 
                         }
                     </Card.Body>

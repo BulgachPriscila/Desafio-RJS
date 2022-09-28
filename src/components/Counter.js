@@ -16,9 +16,9 @@ const Counter = ({max, counter, setCounter, agregar}) => {
 
     return (
         <div className="container">
-            <button onClick={resta} className="btn tilesButton"> - </button>
+            <button onClick={resta} className={ counter === 1 ? "btn btn-secondary disabled" : "btn tilesButton"}> - </button>
             <span className="mx-2"> {counter} </span>
-            <button onClick={suma} className="btn tilesButton"> + </button>
+            <button onClick={suma} className={ counter === max ? "btn btn-secondary disabled" : "btn tilesButton"}> + </button>
             <button onClick={agregar} className="btn my-2 tilesButton">Agregar al carrito</button> 
         </div>
     )

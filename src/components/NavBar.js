@@ -5,7 +5,8 @@ import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
 
-function NavBar() {
+const NavBar = () => {
+    
     return (
         <Navbar className="tilesBackground mb-5" expand="lg">
             <Container>
@@ -27,7 +28,7 @@ function NavBar() {
                     <Link to="/productos/cactus" className='p-3 nav-link'>Cactus</Link>
                 </Nav>
                 </Navbar.Collapse>
-                <CartWidget/> 
+                <CartWidget/>
             </Container>
         </Navbar>
     );

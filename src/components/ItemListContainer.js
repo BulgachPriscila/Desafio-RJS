@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import pedirDatos from '../Data/pedirDatos';
 import ItemList from './ItemList';
+import { BeatLoader } from 'react-spinners'
 
 const ItemListContainer = () => {
 
@@ -29,10 +30,10 @@ const ItemListContainer = () => {
     }, [categoryId])
 
     return (
-        <div className='container'>
+        <div className='container text-center'>
         {
             loading
-            ? <h2>Cargando por favor espere</h2>
+            ? <BeatLoader color="#36d7b7" size={25}/>
             : <ItemList productos={productos} />
         }
         </div>
