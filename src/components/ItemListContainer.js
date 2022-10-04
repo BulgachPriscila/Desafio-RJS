@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 import { BeatLoader } from 'react-spinners'
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firedb } from '../Data/fireconfig';
 
 const ItemListContainer = () => {
@@ -15,7 +15,8 @@ const ItemListContainer = () => {
     useEffect (() => {
         setLoading(true)
         const prodRef = collection(firedb, 'productos')
-        getDocs (prodRef)
+        const q = categoryId ? query(prodRef, where ('tipo', '==', categoryId) ) : prodRef
+        getDocs (q)
             .then ((resp) => {
                 const prodDB = resp.docs.map ((doc) => ({ id: doc.id, ...doc.data()}))
                 console.log (prodDB)
@@ -30,7 +31,7 @@ const ItemListContainer = () => {
     return (
         <div className='container text-center'>
         {
-            loading
+            loading 
             ? <BeatLoader color="#36d7b7" size={25}/>
             : <ItemList productos={productos} />
         }
