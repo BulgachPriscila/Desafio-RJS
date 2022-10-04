@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom';
-import pedirDatos from '../Data/pedirDatos';
 import ItemList from './ItemList';
 import { BeatLoader } from 'react-spinners'
+import { collection, getDocs } from 'firebase/firestore';
+import { firedb } from '../Data/fireconfig';
 
 const ItemListContainer = () => {
 
@@ -13,18 +14,15 @@ const ItemListContainer = () => {
 
     useEffect (() => {
         setLoading(true)
-        pedirDatos ()
-            .then ( (succ) => {
-                if(!categoryId){
-                setProductos (succ)
-            } else {
-                setProductos (succ.filter((prod) => prod.tipo === categoryId) )
-            }
+        const prodRef = collection(firedb, 'productos')
+        getDocs (prodRef)
+            .then ((resp) => {
+                const prodDB = resp.docs.map ((doc) => ({ id: doc.id, ...doc.data()}))
+                console.log (prodDB)
+
+                setProductos(prodDB)
             })
-            .catch ((fail) => {
-                console.log (fail)
-            })
-            .finally (() => {
+            .finally(() => {
                 setLoading(false)
             })
     }, [categoryId])
